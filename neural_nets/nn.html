@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SitePoint">
+<style>
+.maindiv{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+#parameters {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 65%;
+    
+
+}
+
+#parameters td, #parameters th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#parameters tr:nth-child(even){background-color: #f2f2f2;}
+
+#custoparametersmers tr:hover {background-color: #ddd;}
+
+#parameters th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: lightblue;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+    <button style="float:left" onclick=location.href="../index.html">Voltar </button>
+  
+  <div class='maindiv' style="float:center" align="center">
+    <h1 >Neural Nets Architecture</h1>
+    <p> We analyse two slightly different neural nets architectures: MLP and DMLP. The hyperparameters chosen for optization are shown for each archtecure below. 
+        <br>Both architectures share 7 out of 9 hyperparameters. The optization is done at each trial chossen a set of those parameters.
+
+    </p>
+    <div >
+            <h5 style="float:center;">MLP</h5>
+          <img src="../boxplot/imgs/mlp.png" alt="MLP" >
+    </div>
+    <div align='center'>
+            <table id="parameters">
+                    <tr>
+                      <th>Activation</th>
+                      <th>Initialization</th>
+                      <th>Optimizator</th>
+                      <th>Learning Rate</th>
+                      <th>Regularization</th>
+                      <th>Learning Rate - Reg</th>
+                      <th>Units</th>
+                    </tr>
+                    <tr>
+                        <td>Relu <br>Linear</td>
+                        <td>Random Uniform <br> Random Norm</td>
+                        <td>Adam <br> RMSprop<br> SGD<br>  Adamgrad</td>
+                        <td>0.01<br> 0.001<br>  0.0001</td> 
+                        <td>L1<br>  L2<br>    L1L2</td>
+                        <td>0.01<br> 0.001<br>  0.0001 <br> 0.00001</td> 
+                        <td>64<br> 512</td>
+                    </tr>
+            </table>
+    </div>    
+    
+    
+
+    <br>   
+
+    <div >
+            <h5 style="float:center">DMLP</h5>
+            <img src="../boxplot/imgs/dmlp.png" alt="DMLP">
+        </div>
+            <div align='center'>
+                    <table id="parameters">
+                            <tr>
+                              <th>Activation</th>
+                              <th>Initialization</th>
+                              <th>Optimizator</th>
+                              <th>Learning Rate</th>
+                              <th>Regularization</th>
+                              <th>Learning Rate - Reg</th>
+                              <th>Units</th>
+                              <th>Dropout</th>
+                              <th>Layers</th>
+                            </tr>
+                            <tr>
+                                <td>Relu <br>Linear</td>
+                                <td>Random Uniform <br> Random Norm</td>
+                                <td>Adam <br> RMSprop<br> SGD<br>  Adamgrad</td>
+                                <td>0.01<br> 0.001<br>  0.0001</td> 
+                                <td>L1<br>  L2<br>    L1L2</td>
+                                <td>0.01<br> 0.001<br>  0.0001 <br> 0.00001</td> 
+                                <td>64<br> 512</td>
+                                <td>0 <br> 0.1 <br> 0.3 <br> 0.5 <br> 0.7</td>
+                                <td>1 <br> 2 <br> 4</td>
+                            </tr>
+                    </table>
+            </div>    
+   
+    <br>
+  </div>
+  
+</body>
+</html>

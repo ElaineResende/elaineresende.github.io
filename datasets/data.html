@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SitePoint">
+<style>
+.maindiv{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+#parameters {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 65%;
+    
+
+}
+
+#parameters td, #parameters th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#parameters tr:nth-child(even){background-color: #f2f2f2;}
+
+#custoparametersmers tr:hover {background-color: #ddd;}
+
+#parameters th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: lightblue;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+  <button style="float:left" onclick=location.href="../index.html">Voltar </button>
+  
+  <div class='maindiv' style="float:center" align="center">
+    <h1> Input Datasets</h1>
+    <p> In this project 4 text classification standardized datasets are used to feed the neural nets and report the efficiency of the algorithms. <br>The idea is to evaluate
+        both architectures using different datasets. The statistics summary for each dataset is shown in the Table below. 
+        <br> The optization is done at each trial chosing a set of parameters applied to each dataset. There is two versions of each dataset:<br> TFIDF and distance-based meta-features (MF)        
+
+    </p>
+    <div align='center'>
+            <table id='parameters'>
+                    <tr>
+                      <th>Dataset</th>
+                      <th>Size</th>
+                      <th>#Features</th>
+                      <th>#Classes</th>
+                      <th>Mean</th>
+                      <th>Minor Class</th>
+                      <th>1st Quartile</th>
+                      <th>Median</th>
+                      <th>3rd Quartile</th>
+                      <th>Major Class</th>
+                    </tr>
+                    <tr>
+                      <td>20NG</td>
+                      <td>18766</td>
+                      <td>61050</td>
+                      <td>20</td>
+                      <td>938</td>
+                      <td>627</td>
+                      <td>952</td>
+                      <td>978</td>
+                      <td>988</td>
+                      <td>998</td>
+                    </tr>
+                    <tr>
+                      <td>4UNI</td>
+                      <td>8274</td>
+                      <td>40195</td>
+                      <td>7</td>
+                      <td>1182</td>
+                      <td>13</td>
+                      <td>343</td>
+                      <td>929</td>
+                      <td>1382</td>
+                      <td>3757</td>
+                    </tr>
+                    <tr>
+                      <td>REUTERS</td>
+                      <td>13327</td>
+                      <td>19590</td>
+                      <td>90</td>
+                      <td>148</td>
+                      <td>2</td>
+                      <td>8</td>
+                      <td>29</td>
+                      <td>91</td>
+                      <td>3964</td>
+                    </tr>
+                    <tr>
+                      <td>ACM</td>
+                      <td>24897</td>
+                      <td>59990</td>
+                      <td>11</td>
+                      <td>2263</td>
+                      <td>63</td>
+                      <td>761</td>
+                      <td>2041</td>
+                      <td>3278</td>
+                      <td>6562</td>
+                    </tr>
+                  </table>
+    </div>    
+    <br>
+    The datasets we use to create all visualizations are derived from the process of optimization (with 5-fold cross-validation) <br> of each set of parameters applied to each dataset version.
+    During the optization we get the all trials (we set 80 trials) with all <br>the set of parameters  that were tested, time and loss.
+    
+  
+</body>
+</html>
