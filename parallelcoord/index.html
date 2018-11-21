@@ -1,0 +1,133 @@
+<!doctype html>
+
+<title>Linking to Data Table</title> 
+<!-- http://syntagmatic.github.com/parallel-coordinates/ -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
+<script src="d3.parcoords.js"></script>
+<script src="divgrid.js"></script>
+
+<h1>Parallel Coordinates Analysis</h1>
+
+<select name="Choose dataset" id='selectdata' onchange="escolha()">
+  <option selected="selected"> Selecione o dataset</option>
+  <option value="webkb">Webkb</option>
+  <option value="20ng"> 20NG</option>
+</select>
+
+<select name="Neural net" id='selectrede' onchange="escolha()">
+  <option > Selecione o tipo de rede</option>
+  <option selected="selected" value="MLP">MLP</option>
+  <option value="DMLP"> DMLP</option>
+</select>
+
+<select name="Choose fold" id='selectfold' onchange="escolha()">
+  <option > Selecione o fold</option>
+  <option selected="selected"  value="Fold 1"> Fold 1</option>
+  <option value="Fold 2"> Fold 2</option>
+  <option value="Fold 3"> Fold 3</option>
+  <option value="Fold 4"> Fold 4</option>
+  <option value="Fold 5"> Fold 5</option>
+  <option value="Todos"> Todos</option>
+
+</select>
+
+
+<div id="example" class="parcoords"></div>
+<div id="grid"></div>
+
+<script id="brushing">// quantitative colour scale
+/*var green_to_blue = d3.scale.linear()
+  .domain([1, 40])
+  .range(['#1a9850'])
+  .interpolate(d3.interpolateHcl);*/
+
+var color = function(d) {
+   if(d['loss'] > 70) {
+     return '#b2182b' ; 
+   } else if (d['loss'] > 50 && d['loss'] <= 70){
+     return '#f4a582'
+   } else if(d['loss'] > 35 && d['loss']<= 50){
+     return '#92c5de'
+   } else if(d['loss'] > 0  && d['loss']<= 35){
+      return '#2166ac'
+   }
+   console.log(d['loss'])
+};
+//function(d) { return green_to_blue(d['loss']); };
+//function(d) { if(d['loss']<35) {return console.log(d['loss'])}; });
+
+var parcoords = d3.parcoords()("#example")
+  .color(color)
+  .alpha(0.4);
+
+// load csv file and create the chart
+function escolha(){
+    dataset=document.getElementById('selectdata').value
+    if(document.getElementById('selectrede').value == 'MLP'){
+      if(document.getElementById('selectfold').value == 'Fold 1'){
+        var rede = "../datasets/"+dataset+"/mlp/teste1.csv"
+      } else if(document.getElementById('selectfold').value == 'Fold 2'){
+        var rede = "../datasets/"+dataset+"/mlp/teste2.csv"
+      } else if(document.getElementById('selectfold').value == 'Fold 3'){
+        var rede = "../datasets/"+dataset+"/mlp/teste3.csv"
+      } else if(document.getElementById('selectfold').value == 'Fold 4'){
+        var rede = "../datasets/"+dataset+"/mlp/teste4.csv"
+      }else if(document.getElementById('selectfold').value == 'Fold 5'){
+        var rede = "../datasets/"+dataset+"/mlp/teste5.csv"
+      } else if(document.getElementById('selectfold').value == 'Todos'){
+        var rede = "../datasets/"+dataset+"/mlp/teste_all.csv"
+      }
+    } 
+    else if (document.getElementById('selectrede').value == 'DMLP'){
+        if(document.getElementById('selectfold').value == 'Fold 1'){
+          var rede = "../datasets/"+dataset+"/dmlp/teste1.csv"
+      } else if (document.getElementById('selectfold').value == 'Fold 2') {
+          var rede = "../datasets/"+dataset+"/dmlp/teste2.csv"
+      }else if(document.getElementById('selectfold').value == 'Fold 3'){
+        var rede = "../datasets/"+dataset+"/dmlp/teste3.csv"
+      } else if(document.getElementById('selectfold').value == 'Fold 4'){
+        var rede = "../datasets/"+dataset+"/dmlp/teste4.csv"
+      }
+      if(document.getElementById('selectfold').value == 'Fold 5'){
+        var rede = "../datasets/"+dataset+"/dmlp/teste5.csv"
+      }
+      if(document.getElementById('selectfold').value == 'Todos'){
+        var rede = "../datasets/"+dataset+"/dmlp/teste_all.csv"
+      }
+    }
+
+    d3.csv(rede, function(data) {
+  parcoords
+    .data(data)
+    .render()
+    .brushMode("1D-axes");  // enable brushing
+
+  // create data table, row hover highlighting
+  var grid = d3.divgrid();
+  d3.select("#grid")
+    .datum(data.slice(0,30))
+    .call(grid)
+    .selectAll(".row")
+    .on({
+      "mouseover": function(d) { parcoords.highlight([d]) },
+      "mouseout": parcoords.unhighlight
+    });
+
+  // update data table on brush event
+  parcoords.on("brush", function(d) {
+    d3.select("#grid")
+      .datum(d.slice(0,30))
+      .call(grid)
+      .selectAll(".row")
+      .on({
+        "mouseover": function(d) { parcoords.highlight([d]) },
+        "mouseout": parcoords.unhighlight
+      });
+  });
+});
+}
+
+
+</script>
