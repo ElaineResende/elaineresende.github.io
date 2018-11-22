@@ -19,8 +19,7 @@ d3.parcoords = function(config) {
     bundleDimension: null,
     smoothness: 0.25,
     showControlPoints: false,
-    hideAxis : []
-  };
+    hideAxis : []  };
 
   extend(__, config);
 var pc = function(selection) {
@@ -1322,4 +1321,5 @@ d3.renderQueue = (function(func) {
   rq.invalidate = function() {};
 
   return rq;
+
 });

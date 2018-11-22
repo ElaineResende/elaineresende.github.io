@@ -1,4 +1,4 @@
-activation, init, lr, lr_reg, opt, reg, units1, loss
+activation,init,lr,lr_reg,opt,reg,units1,loss
 linear, random_normal, 0.001, 1e-05, Adamgrad, l1l2, 128, 34.2716
 linear, random_normal, 0.0001, 1e-05, Adamgrad, l1, 128, 98.8961
 relu, random_uniform, 0.0001, 1e-05, Adamgrad, l1l2, 128, 98.2976

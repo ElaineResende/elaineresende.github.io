@@ -1,4 +1,4 @@
-activation, dropout, init, lr, lr_reg, n_layers, opt, reg, units1, loss
+activation,dropout,init,lr,lr_reg,n_layers,opt,reg,units1,loss
 relu, 0.5, random_normal, 0.001, 0.01, 1, Adamgrad, l1l2, 32, 91.1044
 linear, 0.3, random_uniform, 0.001, 0.0001, 4, RMSprop, l1, 64, 74.2177
 relu, 0.5, random_uniform, 0.001, 0.001, 4, Adamgrad, l1, 64, 91.1044

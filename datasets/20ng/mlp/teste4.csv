@@ -1,4 +1,4 @@
-activation, init, lr, lr_reg, opt, reg, units1, loss
+activation,init,lr,lr_reg,opt,reg,units1,loss
 relu, random_uniform, 0.01, 0.01, RMSprop, l2, 32, 28.3716
 linear, random_uniform, 0.0001, 0.0001, SGD, l1, 32, 95.5644
 linear, random_uniform, 0.001, 0.0001, SGD, l2, 32, 14.3739
