@@ -1,0 +1,167 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Datasets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<style>
+.maindiv{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+#parameters {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 65%;
+    
+
+}
+
+#parameters td, #parameters th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#parameters tr:nth-child(even){background-color: #f2f2f2;}
+
+#custoparametersmers tr:hover {background-color: #ddd;}
+
+#parameters th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: lightblue;
+    color: white;
+}
+.footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: black;
+        text-align: center;
+    }
+
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>A study about neural nets parameterization for automatic text classification</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="../product.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <a class="py-2" href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          </a>
+          <a class="py-2 d-none d-md-inline-block" href="../neural_nets/nn.html">Neural Nets</a>
+          <a class="py-2 d-none d-md-inline-block" href="../datasets/data.html">Datasets</a>
+          <a class="py-2 d-none d-md-inline-block" href="../analysis.html">Analysis</a>
+          
+        </div>
+      </nav>
+
+  <button style="float:left" onclick=location.href="../index.html">Voltar </button>
+  
+  <div class='maindiv' style="float:center" align="center">
+    <h1> Input Datasets</h1>
+    <p> In this project 4 text classification standardized datasets are used to feed the neural nets and report the efficiency of the algorithms. <br>The idea is to evaluate
+        both architectures using different datasets. The statistics summary for each dataset is shown in the Table below. 
+        <br> The optization is done at each trial chosing a set of parameters applied to each dataset. There is two versions of each dataset:<br> TFIDF and distance-based meta-features (MF)        
+
+    </p>
+    <div align='center'>
+            <table id='parameters'>
+                    <tr>
+                      <th>Dataset</th>
+                      <th>Size</th>
+                      <th>#Features</th>
+                      <th>#Classes</th>
+                      <th>Mean</th>
+                      <th>Minor Class</th>
+                      <th>1st Quartile</th>
+                      <th>Median</th>
+                      <th>3rd Quartile</th>
+                      <th>Major Class</th>
+                    </tr>
+                    <tr>
+                      <td>20NG</td>
+                      <td>18766</td>
+                      <td>61050</td>
+                      <td>20</td>
+                      <td>938</td>
+                      <td>627</td>
+                      <td>952</td>
+                      <td>978</td>
+                      <td>988</td>
+                      <td>998</td>
+                    </tr>
+                    <tr>
+                      <td>4UNI</td>
+                      <td>8274</td>
+                      <td>40195</td>
+                      <td>7</td>
+                      <td>1182</td>
+                      <td>13</td>
+                      <td>343</td>
+                      <td>929</td>
+                      <td>1382</td>
+                      <td>3757</td>
+                    </tr>
+                    <tr>
+                      <td>REUTERS</td>
+                      <td>13327</td>
+                      <td>19590</td>
+                      <td>90</td>
+                      <td>148</td>
+                      <td>2</td>
+                      <td>8</td>
+                      <td>29</td>
+                      <td>91</td>
+                      <td>3964</td>
+                    </tr>
+                    <tr>
+                      <td>ACM</td>
+                      <td>24897</td>
+                      <td>59990</td>
+                      <td>11</td>
+                      <td>2263</td>
+                      <td>63</td>
+                      <td>761</td>
+                      <td>2041</td>
+                      <td>3278</td>
+                      <td>6562</td>
+                    </tr>
+                  </table>
+    </div>    
+    <br>
+    The datasets we use to create all visualizations are derived from the process of optimization (with 5-fold cross-validation) <br> of each set of parameters applied to each dataset version.
+    During the optization we get the all trials (we set 80 trials) with all <br>the set of parameters  that were tested, time and loss.
+    
+    <div class="footer">
+        <a class="btn btn-outline-secondary  btn-sm" href="#">Top</a>
+
+      <p></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

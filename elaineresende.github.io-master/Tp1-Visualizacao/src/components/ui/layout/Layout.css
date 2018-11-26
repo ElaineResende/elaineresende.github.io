@@ -1,0 +1,339 @@
+/**
+ Estilo geral da aplicação
+ */
+/*$link: "/novo/img/patterns/bg-header-red.jpg";*/
+html {
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+  padding-bottom: 6rem;
+  /*max-height: 100%;*/
+  overflow: auto;
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #eee !important;
+  line-height: normal !important;
+  display: block;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+label {
+  font-weight: normal !important;
+}
+th {
+  white-space: normal !important;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+table {
+  background-color: #fff;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  font-family: Roboto, sans-serif;
+}
+table > thead {
+  border-bottom: 1px solid #e0e0e0;
+}
+table > tr {
+  border-bottom: 1px solid #e0e0e0;
+  color: rgba(0, 0, 0, 0.870588);
+  height: 48px;
+}
+tr > th {
+  white-space: nowrap;
+  font-weight: bold;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 56px;
+  text-align: left;
+  /*font-size: 12px;*/
+  text-overflow: ellipsis;
+  color: #000;
+  position: relative;
+  background-color: inherit;
+}
+tbody {
+  height: inherit;
+}
+tbody > tr {
+  border-bottom: 1px solid #e0e0e0;
+  color: rgba(0, 0, 0, 0.870588);
+  height: 48px;
+}
+tr > td {
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 48px;
+  text-align: left;
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: inherit;
+}
+#main-content {
+  /*transition: all 350ms cubic-bezier(0.66, 0.03, 0.58, 1) 0ms;
+   overflow-x: hidden;*/
+}
+/*.menu-open-false.App #main-content {
+ //  width: 100%;
+ //}
+ //
+ //.menu-open-true.App #main-content {
+ //  padding-left: 275px;
+ //}
+ //.menu-open-true.App .is-mobile {
+ //  overflow-x: hidden;
+ //}
+ //.menu-open-true.App .is-mobile #main-content {
+ //  width: 100%;
+ //  overflow-x: hidden;
+ //}
+ */
+.grid-fluid {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-right: 4rem !important;
+  padding-left: 4rem !important;
+}
+.App-header {
+  color: white;
+}
+.App-footer {
+  /*padding-top: 5px;
+   padding-bottom: 5px;*/
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -5;
+}
+.App-footer > h6 {
+  text-align: center;
+  color: white;
+  font-size: 8pt;
+  padding-top: 10px;
+  padding-left: 1rem;
+}
+.img-responsive {
+  width: 100%;
+  max-width: 100%;
+}
+.n-p {
+  padding: 0 !important;
+}
+.cardCagef > div {
+  padding: 0 !important;
+}
+.n-pb {
+  padding-bottom: 0 !important;
+}
+.n-pt {
+  padding-top: 0 !important;
+}
+.n-pl {
+  padding-left: 0 !important;
+}
+.n-pr {
+  padding-right: 0 !important;
+}
+.mb10 {
+  margin-bottom: 10px !important;
+}
+.mt10 {
+  margin-top: 10px !important;
+}
+.mt5 {
+  margin-top: 5px !important;
+}
+.mb5 {
+  margin-bottom: 5px !important;
+}
+.m10 {
+  margin: 10px;
+}
+.corDoTitulo > h5 {
+  color: #000 !important;
+}
+.CardItem > div {
+  padding-bottom: 0 !important;
+}
+.white-textcolor > span {
+  color: #fff !important;
+}
+.SynDialog > div > div {
+  transform: translate(0px, -40px) !important;
+}
+.SynDialogForm > div > div {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+.actionsContainer {
+  background-color: #00a000;
+}
+.modalRegistro {
+  max-height: 60rem;
+}
+.grupoVisibilidadeColunas > div {
+  margin-top: 0 !important;
+}
+.is-not-mobile {
+  display: none !important;
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+  .mobile-landscape {
+    display: none;
+  }
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+  .mobile-landscape {
+    display: none;
+  }
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+  .mobile-landscape {
+    display: none;
+  }
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-device-width: 767px) {
+  .mobile-landscape {
+    background-color: rgba(255, 255, 255, 0.97);
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    text-align: center;
+  }
+  .mobile-landscape img {
+    width: 80%;
+    position: relative;
+    margin-top: 20%;
+  }
+}
+@media only screen and (max-device-width: 767px) and (orientation: landscape) {
+  .mobile-landscape {
+    display: none;
+  }
+  .grid-fluid {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1025px) {
+  /* Styles */
+  .mobile-landscape {
+    display: none;
+  }
+}
+.titularSessao {
+  border-left: 5px solid #20ca3a;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+.titularSessao > div > label {
+  margin-top: 0 !important;
+}
+.titularSessao > div {
+  margin-left: 2px;
+}
+.legendaLoteIncompleto {
+  padding: 4px 7px;
+  margin-left: auto;
+  margin-right: 0;
+  border-left: 5px solid #ffb74d;
+  font-size: 12px;
+  width: fit-content;
+  display: block;
+}
+.legendaTitular {
+  padding: 4px 7px;
+  margin: 0 0 20px;
+  font-size: 12px;
+  border-left: 5px solid #20ca3a;
+  float: right;
+  /* position: relative; */
+  /* top: -34px; */
+}
+.divLegenda {
+  position: relative !important;
+}
+.scrollCampoTexto {
+  height: 410px;
+}
+.scrollCampoTextoDrawer {
+  height: 600px;
+  overflow-y: scroll;
+}
+.indicatorTab {
+  background-color: #2196f3 !important;
+}
+.Tab > div > div > div > button[aria-selected='true'] {
+  color: #2196f3;
+}
+.Tab > div > div > div > button:hover {
+  background-color: rgba(0, 0, 0, .07);
+}
+.overflowProposta {
+  max-height: 500px !important;
+  overflow-y: scroll !important;
+}
+.SynFormTextFieldStyle {
+  background-color: #f5f5f5 !important;
+  border-radius: 5px !important;
+  padding: 0 5px 0 5px;
+}
+.obrigatorio {
+  color: #f00 !important;
+}
+.infoServidor {
+  display: inline-block;
+  padding: 0 30px 0 0;
+  margin-right: 30px;
+  margin-left: 10px;
+  border-right: solid #fff 1px;
+  line-height: normal;
+}
+.infoUnidade {
+  display: inline-block;
+  margin-right: 30px;
+  margin-left: 10px;
+  line-height: normal;
+}
+.textTitulo {
+  color: #fff;
+  font-size: 0.8em !important;
+}
+.textCorpo {
+  color: #fff;
+  font-size: 0.9em !important;
+}
+.legendaComponent {
+  height: 20px;
+  width: 31px;
+}
+.legendaBlockquote {
+  height: 35px;
+  width: 4px;
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>A study about neural nets parameterization for automatic text classification</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="product.css" rel="stylesheet">
+    <style>
+        .footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            text-align: center;
+        }
+        </style>
+  </head>
+
+  <body>
+
+    <nav class="site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+        </a>
+        <a class="py-2 d-none d-md-inline-block" href="neural_nets/nn.html">Neural Nets</a>
+        <a class="py-2 d-none d-md-inline-block" href="datasets/data.html">Datasets</a>
+        <a class="py-2 d-none d-md-inline-block" href="analysis.html">Analysis</a>
+        
+      </div>
+    </nav>
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      <div >
+        <h1 style=''>A Study about Neural Nets Parameterization for Automatic Text Classification</h1>
+        <p align="center" style='text-align: center;  ' >Most machine learning algorithms have a set of configuration variables which the configuration will have direct effect on results. This configuration, called hyperparameter optimization, is made prior training of each dataset (because often there is no configuration that is optimal for all domains) through tuning of hyperparameters (configuration parameters).
+            It is a very crucial task as the performance of the algorithm can be highly dependent of the choice of hyperparameters. Generally the set of hyperparameters can be troublesome because their combination of trials require long time. </p>
+        <br>
+        <p>In this webpage the process of parametrization can be analyzed through plots from the optimization time. An example of the process
+          is shown in the figure below. We focus our classification task on the text area. 
+        </p>
+        <img src="boxplot/imgs/img.png" alt="" width=680 height=359>
+        <p>In this project we present the visualization from the optization process of two neural nets archtectures, named Multilayer Perceptron (MLP) and Deep Multilayer Perceptron (DMLP).
+          <a href="neural_nets/nn.html"> Shown here. </a></p>
+        </div>
+    </div>
+
+
+
+    <div class="footer">
+        <a class="btn btn-outline-secondary  btn-sm" href="#">Top</a>
+
+      <p></p>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+ 
+</html>

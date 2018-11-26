@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>D3 exploding boxplot by mcaule</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+        <script src="bower_components/requirejs/require.js"></script>
+        <link href="src/d3_exploding_boxplot.css" rel="stylesheet" type="text/css"></link>    
+        <script type="text/javascript">
+
+      require.config({
+        baseUrl: ".",
+        paths:{
+          d3:'bower_components/d3/d3.min',
+          "d3-tip":'bower_components/d3-tip/index',
+          'd3-exploding-boxplot':'src/d3_exploding_boxplot'
+        },
+        shim:{
+          'd3-exploding-boxplot':{
+              deps:['d3','d3-tip']
+          },
+          'd3-tip':{
+            deps:['d3']
+          }
+        }
+      });
+      </script>
+      <style>
+      .gist{font-size:12px;line-height:16px;margin-bottom:0px;width:600px}
+      .gist-meta{display:none;}
+      </style>
+      </head>
+<body>
+
+  <div><p>texto teste</p></div>
+  <div id="chartContainer1">
+  </div>
+  <div id="chartContainer2">
+  </div>
+
+
+<script>
+
+  require(['d3-exploding-boxplot','d3'],function(exploding_boxplot,d3){
+  
+//other dataset
+  
+  var dataset = [];
+  var dataset1 = [];
+  var dataset2 = [];
+  var dataset3 = [];
+  var dataset4 = [];
+  d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data1.csv", function(data) {
+    for(var i=0;i<80;i++){
+      dataset.push(data[i])
+    }
+    //console.log(dataset)
+    box1 = dataset.map(function(d,i){ return {v:+d.loss, g:'Fold 1',t:"trial "+i}; })
+    console.log(box1)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data2.csv", function(data1) {
+    for(var i=0;i<80;i++){
+      dataset1.push(data1[i])
+    }
+    //console.log(dataset1)
+
+    box2 = dataset1.map(function(p,i){ return {v:+p.loss, g:'Fold 2',t:"trial "+i}; })
+    console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data3.csv", function(data2) {
+    for(var i=0;i<80;i++){
+      dataset2.push(data2[i])
+    }
+    //console.log(dataset2)
+
+    box3 = dataset2.map(function(p,i){ return {v:+p.loss, g:'Fold 3',t:"trial "+i}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data4.csv", function(data3) {
+    for(var i=0;i<80;i++){
+      dataset3.push(data3[i])
+    }
+    //console.log(dataset3)
+
+    box4 = dataset3.map(function(p,i){ return {v:+p.loss, g:'Fold 4',t:"trial "+i}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data5.csv", function(data4) {
+    for(var i=0;i<80;i++){
+      dataset4.push(data4[i])
+    }
+    //console.log(dataset4)
+
+    box5 = dataset4.map(function(p,i){ return {v:+p.loss, g:'Fold 5',t:"trial "+i}; })
+    //console.log(box2)
+
+    var data = box1.concat(box2).concat(box3).concat(box4).concat(box5)
+    var chart = exploding_boxplot(data,{y:'v',group:'g',color:'g',label:'t'})
+
+    //call chart on a div
+    chart('#chartContainer2')
+  });
+});
+});
+});
+});
+  
+
+ 
+
+  // chart(data,aes)
+  // aesthetic :
+  // y : point's value on y axis
+  // group : how to group data on x axis
+  // color : color of the point / boxplot
+  // label : displayed text in toolbox
+  //var chart = exploding_boxplot(data,{y:'v',group:'g',color:'g',label:'t'})
+
+  //call chart on a div
+  //chart('#chartContainer')
+
+  })
+  </script>
+</body>
+</html> 
+
+
+
+ 

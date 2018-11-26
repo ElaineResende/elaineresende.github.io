@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Optimization Analysis</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        
+        <script src="bower_components/requirejs/require.js"></script>
+        
+        <link href="src/d3_exploding_boxplot.css" rel="stylesheet" type="text/css"></link> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+        <script type="text/javascript">
+
+      require.config({
+        baseUrl: ".",
+        paths:{
+          d3:'bower_components/d3/d3.min',
+          "d3-tip":'bower_components/d3-tip/index',
+          'd3-exploding-boxplot':'src/d3_exploding_boxplot'
+        },
+        shim:{
+          'd3-exploding-boxplot':{
+              deps:['d3','d3-tip']
+          },
+          'd3-tip':{
+            deps:['d3']
+          }
+        }
+      });
+      </script>
+          <link href="../product.css" rel="stylesheet">
+
+      <style>
+      .gist{font-size:12px;line-height:16px;margin-bottom:0px;width:600px}
+      .gist-meta{display:none;}
+
+      .button {
+          background-color: #a8a7a7;
+          color: rgb(5, 4, 4);
+          padding: 10px 22px;
+          text-align: center;
+          font-size: 16px;
+          margin: 4px 2px;
+          opacity: 0.6;
+          transition: 0.3s;
+          display: inline-block;
+          text-decoration: none;
+          cursor: pointer;
+      }
+      .footer {
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: black;
+          text-align: center;
+      }
+      </style>
+      </head>
+<body>
+
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <a class="py-2" href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          </a>
+          <a class="py-2 d-none d-md-inline-block" href="neural_nets/nn.html">Neural Nets</a>
+          <a class="py-2 d-none d-md-inline-block" href="datasets/data.html">Datasets</a>
+          <a class="py-2 d-none d-md-inline-block" href="../analysis.html">Analysis</a>
+          
+        </div>
+      </nav>
+    <button style="float:left" onclick=location.href="../analysis.html">Voltar </button>
+
+    <div class="container" align="center" style="margin-top: 2%">
+    <h1>BoxPlot Analysis</h1>
+    <div>
+      <div  style="width: 50%; float:left;margin-top: 2% " id="chartContainer1">
+        <p>Macro F1 distribution of trials from MF Input</p>
+      </div>
+      <div  style="width: 50%; float:right;margin-top: 2% "  id="chartContainer2">
+        <p>Macro F1 distribution of trials from TFIDF Input</p>
+      </div>
+    </div>
+
+    <button class="button" onclick="window.location.reload(true)"> Reset Graphs</button>
+
+    </div>
+    <p  style="float:left">One click on a box to see datapoints <br> Two clicks to go back to boxes </p> 
+
+
+<script>
+
+  require(['d3-exploding-boxplot','d3'],function(exploding_boxplot,d3){
+  
+  var dataset = [];
+  var dataset1 = [];
+  var dataset2 = [];
+  var dataset3 = [];
+  var dataset4 = [];
+  d3.csv("data/data-dmlp_4uni_mf-dmlp_data1.csv", function(data) {
+    for(var i=0;i<80;i++){
+      dataset.push(data[i])
+    }
+    //    console.log(dataset)
+    box1 = dataset.map(function(d,i){ return {v:+d.loss, g:'Fold 1',t:"trial "+i}; })
+    //console.log(box1)
+
+    d3.csv("data/data-dmlp_4uni_mf-dmlp_data2.csv", function(data1) {
+    for(var i=0;i<80;i++){
+      dataset1.push(data1[i])
+    }
+    //console.log(dataset1)
+
+    box2 = dataset1.map(function(p,i){ return {v:+p.loss, g:'Fold 2',t:"trial "+i}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_mf-dmlp_data3.csv", function(data2) {
+    for(var i=0;i<80;i++){
+      dataset2.push(data2[i])
+    }
+    //console.log(dataset2)
+
+    box3 = dataset2.map(function(p,i){ return {v:+p.loss, g:'Fold 3',t:"trial "+i}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_mf-dmlp_data4.csv", function(data3) {
+    for(var i=0;i<80;i++){
+      dataset3.push(data3[i])
+    }
+    //console.log(dataset3)
+
+    box4 = dataset3.map(function(p,i){ return {v:+p.loss, g:'Fold 4',t:"trial "+i}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_mf-dmlp_data5.csv", function(data4) {
+    for(var i=0;i<80;i++){
+      dataset4.push(data4[i])
+    }
+    //console.log(dataset4)
+
+    box5 = dataset4.map(function(p,i){ return {v:+p.loss, g:'Fold 5',t:"trial "+i}; })
+    //console.log(box2)
+
+    var data = box1.concat(box2).concat(box3).concat(box4).concat(box5)
+    var chart = exploding_boxplot(data,{y:'v',group:'g',color:'g',label:'t'})
+
+    //call chart on a div
+    chart('#chartContainer1')
+  });
+});
+});
+});
+});
+
+//other dataset
+  
+  var dataset00 = [];
+  var dataset11 = [];
+  var dataset12 = [];
+  var dataset13 = [];
+  var dataset14 = [];
+  d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data1.csv", function(data) {
+    for(var i=0;i<80;i++){
+      dataset00.push(data[i])
+    }
+    //console.log(dataset)
+    box11 = dataset00.map(function(d,j){ return {v:+d.loss, g:'Fold 1',t:"trial "+j}; })
+    //console.log(box1)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data2.csv", function(data1) {
+    for(var i=0;i<80;i++){
+      dataset11.push(data1[i])
+    }
+    //console.log(dataset1)
+
+    box12 = dataset11.map(function(p,j){ return {v:+p.loss, g:'Fold 2',t:"trial "+j}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data3.csv", function(data2) {
+    for(var i=0;i<80;i++){
+      dataset12.push(data2[i])
+    }
+    //console.log(dataset2)
+
+    box13 = dataset12.map(function(p,j){ return {v:+p.loss, g:'Fold 3',t:"trial "+j}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data4.csv", function(data3) {
+    for(var i=0;i<80;i++){
+      dataset13.push(data3[i])
+    }
+    //console.log(dataset3)
+
+    box14 = dataset13.map(function(p,j){ return {v:+p.loss, g:'Fold 4',t:"trial "+j}; })
+    //console.log(box2)
+
+    d3.csv("data/data-dmlp_4uni_tfidf-dmlp_data5.csv", function(data4) {
+    for(var i=0;i<80;i++){
+      dataset14.push(data4[i])
+    }
+    //console.log(dataset4)
+
+    box15 = dataset14.map(function(p,i){ return {v:+p.loss, g:'Fold 5',t:"trial "+i}; })
+    //console.log(box2)
+
+    var data = box11.concat(box12).concat(box13).concat(box14).concat(box15)
+    var chart = exploding_boxplot(data,{y:'v',group:'g',color:'g',label:'t'})
+
+    //call chart on a div
+    chart('#chartContainer2')
+  });
+});
+});
+});
+});
+
+ function resetted() {
+				svg.transition()
+						.duration(750)
+						.call(zoom.transform, d3.zoomIdentity);
+			}
+
+  // chart(data,aes)
+  // aesthetic :
+  // y : point's value on y axis
+  // group : how to group data on x axis
+  // color : color of the point / boxplot
+  // label : displayed text in toolbox
+  //var chart = exploding_boxplot(data,{y:'v',group:'g',color:'g',label:'t'})
+
+  //call chart on a div
+  //chart('#chartContainer')
+
+  })
+  </script>
+</body>
+</html>

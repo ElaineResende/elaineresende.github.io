@@ -1,0 +1,19 @@
+{
+  "main.css": "static/css/main.045f9071.chunk.css",
+  "main.js": "static/js/main.d916406e.chunk.js",
+  "static/js/1.8375e53b.chunk.js": "static/js/1.8375e53b.chunk.js",
+  "runtime~main.js": "static/js/runtime~main.229c360f.js",
+  "static/media/mlp_data2.csv": "static/media/mlp_data2.590e15a2.csv",
+  "static/media/dmlp_data1.csv": "static/media/dmlp_data1.e7b0431d.csv",
+  "static/media/dmlp_data3.csv": "static/media/dmlp_data3.19413487.csv",
+  "static/media/dmlp_data4.csv": "static/media/dmlp_data4.aac8db13.csv",
+  "static/media/dmlp_data5.csv": "static/media/dmlp_data5.c5075fcd.csv",
+  "static/media/dmlp_data2.csv": "static/media/dmlp_data2.fc582713.csv",
+  "static/media/mlp_data1.csv": "static/media/mlp_data1.d148dbad.csv",
+  "static/media/mlp_data3.csv": "static/media/mlp_data3.ce1aa6da.csv",
+  "static/media/mlp_data4.csv": "static/media/mlp_data4.2c39b672.csv",
+  "static/media/mlp_data5.csv": "static/media/mlp_data5.ffdaee23.csv",
+  "index.html": "/index.html",
+  "precache-manifest.3a99df4f0e442aaa27a01fbfddf5e493.js": "/precache-manifest.3a99df4f0e442aaa27a01fbfddf5e493.js",
+  "service-worker.js": "/service-worker.js"
+}
