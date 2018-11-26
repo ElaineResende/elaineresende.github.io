@@ -1,0 +1,23 @@
+MLP mfs	
+    units	lr		act			init			opt		reg		lr_reg		n-layers	dropout
+    512		0,001	relu		random_normal	RMSProp	l2		0,001		- 			-
+	64		0,01	relu		random_normal	RMSProp	l1l2	0,01		- 			-
+	512		0,001	relu		random_normal	RMSProp	l1l2	0,001		- 			-
+	512		0,001	relu		random_normal	RMSProp	l2		1,00E-05	- 			-
+	512		0,001	relu		random_uniform	RMSProp	l1		0,001		- 			-
+
+DMLP
+    units	lr		act		init			opt		reg		lr_reg	n-layers	dropout
+    512		0,001	relu	random_uniform	RMSProp	l1		0,0001	2			0,3
+	512		0,0001	relu	random_uniform	RMSProp	l1		0,01	1			0,5
+	512		0,001	relu	random_uniform	RMSProp	l2		0,001	2			0,7
+	512		0,0001	linear	random_normal	RMSProp	l1		0,0001	2			0,5
+	512		0,001	relu	random_normal	RMSProp	l1l2	0,0001	2			0,5
+
+DMLP mfs	
+    units	lr		act		init			opt		reg		lr_reg	n-layers	dropout
+    128		0,001	linear	random_uniform	RMSProp	l1		0,0001	1			0,3
+	128		0,0001	linear	random_normal	RMSProp	l2		0,01	2			0
+	64		0,001	linear	random_uniform	RMSProp	l1		0,001	1			0,3
+	128		0,001	relu	random_normal	RMSProp	l2		0,0001	1			0,1
+	32		0,001	relu	random_normal	RMSProp	l1l2	0,001	1			0
